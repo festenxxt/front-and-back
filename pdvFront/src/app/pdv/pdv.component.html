@@ -1,0 +1,92 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" *ngIf="produtoList">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Produto</h1>
+          <p><input type="codigo_barras" [(ngModel)]="produto.codigo_barras" [formControl]="cod" placeholder="Codigo de barras">
+            <a class="btn btn-success btn-xs" (click)="exibirProdutos()" >Adicionar</a></p>
+          <p><input type="nome_produto" [(ngModel)]="produto.nome_produto" [formControl]="nome" placeholder="Descrição"></p>
+          <p><input type="quantidade" [(ngModel)]="produto.quantidade" [formControl]="quantidade" placeholder="Quantidade"></p>
+          <p><input type="preco_unitario" [(ngModel)]="produto.preco_unitario" [formControl]="preco" placeholder="Preco Unitario"></p>
+          <p><input type="total_item" [(ngModel)]="produto.total_item" [formControl]="totalPreco" placeholder="Total Item"></p>
+        </div><!-- /.col -->
+
+        <div>
+          <h1> Total a pagar </h1>
+          <p><input type="vlt_total" placeholder="Total a pagar"></p>
+
+
+            <div ng-controller="ExampleController">
+              <form name="myForm">
+                <p><label for="singleSelect"> Single select: </label><br></p>
+                <select name="singleSelect" ng-model="data.singleSelect">
+                  <option value="option-1">Option 1</option>
+                  <option value="option-2">Option 2</option>
+                </select><br>
+              </form>
+
+          </div>
+        </div>
+
+        <div id="list" class="row">
+
+          <div class="table-responsive col-md-12">
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                <tr>
+                  <th scope="col" >Codigo de barras</th>
+                  <th scope="col">Nome do produto</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col">Preco Unitario</th>
+                  <th class="actions">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let prod of produtoList">
+                  <td>{{prod.codigo_barras}}</td>
+                  <td>{{prod.nome_produto}}</td>
+                  <td>{{prod.total_item}}</td>
+                  <td>Aqui é para receber o preco_unitario</td>
+                  <td class="actions">
+                    <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
+                    <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                    <a class="btn btn-danger btn-xs" href="#" data-toggle="modal"
+                      data-target="#delete-modal">Excluir</a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            <!-- Modal -->
+            <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span
+                        aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+                  </div>
+                  <div class="modal-body">Deseja realmente excluir este item? </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Sim</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div> <!-- /#list -->
+
+
+
+      </div>
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
